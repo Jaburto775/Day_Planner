@@ -1,5 +1,5 @@
 var today = moment().format('dddd') + " " + moment().format("Do MMM YYYY");
-var now = moment().format('h:mm a');
+var cHour = moment().format('h:mm a');
 var nineAm = $("#9am");
 var tenAm = $("#10am");
 var elevenAm = $("#11am");
@@ -14,3 +14,11 @@ var sevenPm = $("#19pm");
 var hour = moment().hours();
 var userInput;
 var hourSpan;
+
+var interval = setInterval(function() {
+  var momentNow = moment();
+  $('#currentDay').html(momentNow.format('YYYY MMMM DD') + ' '
+                      + momentNow.format('dddd')
+                       .substring(0,3).toUpperCase());
+  $('#currentDay').html(today + " " + momentNow.format('hh:mm A'));
+}, 100);
