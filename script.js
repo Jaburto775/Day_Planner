@@ -22,3 +22,25 @@ var interval = setInterval(function() {
                        .substring(0,3).toUpperCase());
   $('#currentDay').html(today + " " + momentNow.format('hh:mm A'));
 }, 100);
+
+function initPage() {
+  console.log("Current Hour " + hour);
+} 
+
+function background () {
+      
+  $(".form-control").each(function () {
+      var timeTest = parseInt($(this).attr("id"));
+      hour = parseInt(hour);
+      console.log(timeTest);
+      console.log(hour);
+      if (hour > timeTest) {
+          $(this).addClass("past");
+      } else if (hour < timeTest) {
+          $(this).addClass("future");
+      } else {
+          $(this).addClass("present");
+      }
+  });
+}
+
